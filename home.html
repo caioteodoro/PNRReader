@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decodificador de PNR</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        input[type="text"] {
+            width: 50%;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Decodificador de PNR</h1>
+    <p>Digite o código PNR no formato <strong>LH237 23MAR MADGRU 0800 1300</strong>:</p>
+    <textarea id="pnrInput" rows="5" cols="50" placeholder="Insira os códigos PNR, um por linha"></textarea>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Voo</th>
+                <th>Origem - Destino</th>
+                <th>Saída</th>
+                <th>Chegada</th>
+            </tr>
+        </thead>
+        <tbody id="pnrTableBody">
+        </tbody>
+    </table>
+
+    <script>
+        let airlineCodes = {};
+        let airportCodes = {};
+
+        // Carrega os arquivos JSON de companhias aéreas e aeroportos
+        async function carregarJson(url) {
+            const response = await fetch(url);
+            return await response.json();
+        }
+
+        async function carregarDados() {
+            airlineCodes = await carregarJson('https://raw.githubusercontent.com/caioteodoro/PNRReader/refs/heads/main/airline_codes.json');
+            airportCodes = await carregarJson('https://raw.githubusercontent.com/caioteodoro/PNRReader/refs/heads/main/airport_codes.json');
+        }
+
+        // Função para transformar múltiplos códigos PNR em uma tabela formatada
+        function atualizarTabelaPNR() {
+            const pnrInput = document.getElementById('pnrInput').value.toUpperCase();
+            const linhasPNR = pnrInput.split('\n'); // Divide o texto em várias linhas
+
+            let tabelaHTML = '';
+
+            linhasPNR.forEach(pnrCode => {
+
+                pnrCode = pnrCode.slice(pnrCode.search(/[A-Z]/)); // Ignora qualquer coisa antes da primeira letra
+
+
+                const airlineCode = pnrCode.substring(0, 2); // Pega os dois primeiros caracteres após o slice
+                // Encontra o número do voo: pega todos os dígitos após o código da companhia aérea
+                let flightNumber = '';
+                for (let i = 2; i < pnrCode.length; i++) {
+                    if (!isNaN(pnrCode[i]) && pnrCode[i] !== ' ') {
+                        flightNumber += pnrCode[i];
+                    } else {
+                        break; // Para ao encontrar o primeiro caractere que não seja um número
+                    }
+                }
+                const date = formatarData(match[3]); // Data do voo
+                const origem = formatarAeroporto(match[4]); // Código IATA de origem
+                const destino = formatarAeroporto(match[5]); // Código IATA de destino
+                const horarioSaida = formatarHorario(match[6]); // Horário de saída
+                const horarioChegada = formatarHorario(match[7]); // Horário de chegada
+
+                const airlineName = airlineCodes[airlineCode] || airlineCode; // Converte código da companhia para o nome
+
+                // Adiciona uma nova linha na tabela
+                tabelaHTML += `
+                        <tr>
+                            <td>${airlineName} ${flightNumber}</td>
+                            <td>${origem} - ${destino}</td>
+                            <td>${date} ${horarioSaida}</td>
+                            <td>${date} ${horarioChegada}</td>
+                        </tr>
+                    `;
+            });
+
+            // Atualiza a tabela com o HTML gerado
+            document.getElementById('pnrTableBody').innerHTML = tabelaHTML;
+        }
+
+        // Adiciona um event listener para atualizar a tabela sempre que o texto na textarea mudar
+        document.getElementById('pnrInput').addEventListener('input', atualizarTabelaPNR);
+
+
+
+        // Função para formatar a data
+        function formatarData(dataStr) {
+            const dia = dataStr.substring(0, 2);
+            const mesAbreviado = dataStr.substring(2).toLowerCase();
+            const meses = { jan: 'jan', feb: 'fev', mar: 'mar', apr: 'abr', may: 'mai', jun: 'jun', jul: 'jul', aug: 'ago', sep: 'set', oct: 'out', nov: 'nov', dec: 'dez' };
+            return `${dia}/${meses[mesAbreviado]}`;
+        }
+
+        // Função para formatar o horário (de 0800 para 08h00)
+        function formatarHorario(horarioStr) {
+            return `${horarioStr.substring(0, 2)}h${horarioStr.substring(2)}`;
+        }
+
+        // Função para converter o código IATA em nomes de aeroportos
+        function formatarAeroporto(iataCode) {
+            return airportCodes[iataCode] || iataCode;
+        }
+
+        // Inicia a página carregando os dados JSON e ativando o evento de input
+        window.onload = async function () {
+            await carregarDados(); // Carrega os JSON de companhias e aeroportos
+
+            // Atualiza a tabela ao digitar no campo
+            document.getElementById('pnrInput').addEventListener('input', function () {
+                atualizarTabelaPNR(this.value.trim());
+            });
+        }
+    </script>
+</body>
+
+</html>
