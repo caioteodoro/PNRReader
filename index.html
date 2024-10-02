@@ -4,12 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Decodificador de PNR</title>
+    <title>PNR Reader</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>Decodificador de PNR</h1>
+
+    <header>
+        <h1>PNR READER</h1>
+    </header>
+
+    <div id="midColumn">
     <p>Digite o código PNR no formato <strong>LH237 23MAR MADGRU 0800 1300</strong>:</p>
     <textarea id="pnrInput" rows="5" cols="50" placeholder="Insira os códigos PNR, um por linha"></textarea>
     <table id="pnrTable" border="1">
@@ -26,13 +31,19 @@
     </table>
 
     <br>
-    <button onclick="copiarTabela()">Copiar Tabela</button>
+    <div id="buttonContainer">
+    <button id="copyButton" onclick="copiarTabela()">Copiar</button>
+    </div>
+    </div>
+
+    <div style="height: 30px;"></div>
 
     <script src="script.js"></script>
     
     <footer>
         <p>Developed with love by Caio Teodoro</p>
     </footer>
+    
 
 </body>
 

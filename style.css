@@ -1,6 +1,46 @@
+@font-face {
+    font-family: '04B_30__';
+    src: url('04B_30__.ttf') format('truetype');
+}
+
+h1 {
+    font-family: '04B_30__', sans-serif;
+    text-shadow: 
+        2px 2px 0 white, /* Sombra direita */
+        -2px -2px 0 white, /* Sombra esquerda */
+        2px -2px 0 white, /* Sombra acima */
+        -2px 2px 0 white;
+}
+
+header {
+    text-align: center;
+}
+
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
+    margin: 0px;
+    background-color: #7ccaf7;
+    min-height: 100vh;
+    background-image: url('skyBackgroundImage.png');
+    background-size: 100% auto; 
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+#midColumn {
+    border-radius: 10px;
+    padding: 30px;
+    margin: 30px;
+    background-color: rgba(255, 255, 255, 0.8); /* Cor branca com 80% de transparência */
+    backdrop-filter: blur(10px); /* Aplica um desfoque ao fundo */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#pnrInput {
+    font-size: medium;
+    width: 100%;
+    box-sizing: border-box;
+    resize: none;
 }
 
 table {
@@ -12,13 +52,39 @@ table {
 table,
 th,
 td {
+    font-size: medium;
     border: 1px solid black;
     padding: 8px;
     text-align: center;
 }
 
 th {
-    background-color: #f2f2f2;
+    background-color: black;
+    color: white;
+}
+
+#buttonContainer {
+    width: 100%;
+    text-align: right;
+}
+
+#copyButton {
+    font-weight: bold;
+    font-size: medium;
+    background-color: black; /* Cor de fundo */
+    border: none;
+    color: white;
+    padding: 5px 20px; /* Espaçamento interno do botão */
+    cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+    transition: background-color 0.3s; /* Transição suave na cor de fundo */
+}
+
+#copyButton:hover {
+    border-left: 5px solid #7ccaf7;
+}
+
+#copyButton:active {
+    border-left: 5px solid #80ac73;
 }
 
 input[type="text"] {
@@ -34,5 +100,9 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: #f1f1f1;
+    background-color: #80ac73;
+}
+
+footer p {
+    color: #C0FAD2;
 }

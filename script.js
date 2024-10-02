@@ -249,7 +249,6 @@ function copiarTabela() {
     try {
         // Copia o conteúdo selecionado
         document.execCommand("copy");
-        alert("Tabela copiada com sucesso!");
     } catch (err) {
         alert("Não foi possível copiar a tabela.");
     }
