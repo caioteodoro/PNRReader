@@ -58,6 +58,10 @@ td {
     text-align: center;
 }
 
+td {
+    background-color: white;
+}
+
 th {
     background-color: black;
     color: white;
