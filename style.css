@@ -107,6 +107,10 @@ footer {
     background-color: #80ac73;
 }
 
+footer a {
+    color: #7ccaf7;
+}
+
 footer p {
     color: #C0FAD2;
 }
