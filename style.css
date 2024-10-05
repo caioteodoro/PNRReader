@@ -61,7 +61,7 @@ body {
 main {
     box-shadow: inset 0 20px 0 0 #7ccaf7;
     background-image: url('assets/skyBackgroundImage.png');
-    background-size: contain; 
+    background-size: 100% auto; 
     background-repeat: no-repeat;
     background-position: bottom;
     width: 100%; /* Preenche a largura da tela */
