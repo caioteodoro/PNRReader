@@ -13,9 +13,6 @@
         })(window, document, 'script', 'dataLayer', 'GTM-5DD6GDDZ');</script>
     <!-- End Google Tag Manager -->
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8354366259506970"
-     crossorigin="anonymous"></script>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PNR Reader</title>
@@ -29,38 +26,71 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <header>
-        <h1>PNR READER</h1>
-        <nav>
-            <ul id="mainMenu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">Sobre</a></li>
-                <li><a href="contact.html">Contato</a></li>
-            </ul>
-        </nav>
-
+        <a href="index.html" id="pageTitle">PNR READER</a>
+        </br>
+        <p id="pageSubtitle">Decodificador e formatador para Amadeus, Sabre e Travelport Galileo.</p>
     </header>
 
-    <div id="midColumn">
-        <h2>Entre em Contato</h2> 
-        <p class="aboutText">Fico feliz em ouvir você! Se tiver alguma dúvida, sugestão ou feedback sobre o PNR Reader, não hesite em entrar em contato. Estou sempre buscando formas de melhorar a ferramenta e facilitar ainda mais o trabalho dos agentes de viagem. Sua opinião é muito importante!</p> 
-        <p class="aboutText"><strong>E-mail:</strong> caiorodrigot@hotmail.com</p>
+    <main>
+        <div class="content">
+            <div id="midColumn">
+                <h2>Entre em Contato</h2>
+                <p>Fico feliz em ouvir você! Se tiver alguma dúvida, sugestão ou feedback sobre o PNR Reader, não hesite
+                    em entrar em contato. Estou sempre buscando formas de melhorar a ferramenta e facilitar ainda mais o
+                    trabalho dos agentes de viagem. Sua opinião é muito importante!</p>
+                
+                    
+                    <form action="https://getform.io/f/alljmwqa" method="POST">
+                        <h4 style="margin-bottom: 10px;">Nome*</h4>  
+                        <input type="text" name="name" style="height: 18px; width: 70%; font-family: Arial, sans-serif;" required>
+                        <h4 style="margin-bottom: 10px;">E-mail*</h4>
+                        <input type="email" name="email" style="height: 18px; font-size: 16px; padding: 10px; width: 70%; font-family: Arial, sans-serif;" required>
+                        <h4 style="margin-bottom: 10px;">Mensagem*</h4>
+                        <textarea name="message" style="width: 70%; max-width: 70%; min-height: 38px; margin-left: 0; font-size: 16px; padding: 10px; font-family: Arial, sans-serif;" rows="5" required></textarea>
 
-    </div>
+                        <!-- hidden Honeypot input to prevent spams -->
+                        <input type="hidden" name="_gotcha" style="display:none !important">
+                        </br>
+                        <button id="sendButton" type="submit">Enviar</button>
+                    </form>
 
-    <div style="height: 30px;"></div>
+            </div>
 
-    <script src="script.js"></script>
+            <div style="height: 30px;"></div>
+
+            <script src="script.js"></script>
+
+            <style>
+                p,
+                .aboutText {
+                    text-align: justify;
+                    line-height: 1.8;
+                    /* Espaçamento maior entre as linhas */
+                }
+            </style>
+        </div>
+        <div class="spacer"></div>
+    </main>
+
+
 
     <footer>
-        <p>Developed with love by Caio Teodoro</p>
+        <div class="footer-column" id="footer-column-with-text">
+            <h3>PNR Reader</h3>
+            <p>PNR Reader decodifica e formata gratuitamente PNRs gerados no Amadeus, Sabre e Travelport.</p>
+        </div>
+        <div class="footer-column">
+            <h3>Ajuda</h3>
+            <a href="what-is-a-pnr.html">O que é um PNR?</a>
+            <a href="what-does-pnr-reader-do.html">O que o PNR Reader faz?</a>
+            <a href="how-to-use.html">Como usar o PNR Reader?</a>
+        </div>
+        <div class="footer-column">
+            <h3>Sobre</h3>
+            <a href="privacy.html">Privacidade e Segurança</a>
+            <a href="contact.html">Contato</a>
+        </div>
     </footer>
-
-    <style>
-        .aboutText {
-            text-align: justify;
-            line-height: 1.8; /* Espaçamento maior entre as linhas */
-        }
-    </style>
 
 </body>
 
