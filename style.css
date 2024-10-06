@@ -58,13 +58,38 @@ body {
     min-height: 100vh;
 }
 
-main {
-    box-shadow: inset 0 20px 0 0 #7ccaf7;
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
     background-image: url('assets/skyBackgroundImage.png');
     background-size: 100% auto; 
     background-repeat: no-repeat;
     background-position: bottom;
-    width: 100%; /* Preenche a largura da tela */
+}
+
+.sidebar {
+    width: 15%; /* Define a largura das barras laterais */
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8); /* Cor branca com 80% de transparência */
+    backdrop-filter: blur(10px); /* Aplica um desfoque ao fundo */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin-bottom: 45px;
+}
+
+.left-sidebar {
+    margin-right: 10px;
+}
+
+.right-sidebar {
+    margin-left: 10px;
+}
+
+
+main {
+    box-shadow: inset 0 20px 0 0 #7ccaf7;
+    width: 100%; 
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -84,9 +109,7 @@ main {
 #midColumn {
     border-radius: 10px;
     padding: 30px;
-    margin: 200px;
     margin-bottom: 15px;
-    margin-top: 15px;
     background-color: rgba(255, 255, 255, 0.8); /* Cor branca com 80% de transparência */
     backdrop-filter: blur(10px); /* Aplica um desfoque ao fundo */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
