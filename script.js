@@ -150,8 +150,9 @@ function atualizarTabelaPNR() {
 
         const airlineName = airlineCodes[airlineCode] || airlineCode; // Converte código da companhia para o nome
 
-        // Adiciona uma nova linha na tabela
-        tabelaHTML += `
+        if (airlineName && flightNumber && origem && destino && dataPartida && horarioPartidaFormatado && dataChegada && horarioChegadaFormatado) {
+            // Adiciona uma nova linha na tabela apenas se todos os campos estiverem preenchidos
+            tabelaHTML += `
                 <tr>
                     <td>${airlineName} ${flightNumber}</td>
                     <td>${origem} - ${destino}</td>
@@ -159,6 +160,8 @@ function atualizarTabelaPNR() {
                     <td>${dataChegada} ${horarioChegadaFormatado}</td>
                 </tr>
             `;
+        }
+        
     });
 
     // Atualiza a tabela com o HTML gerado
