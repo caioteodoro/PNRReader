@@ -55,7 +55,7 @@ body {
     display: flex;
     flex-direction: column;
     font-family: Arial, sans-serif;
-    background-color: #7ccaf7;
+    background: linear-gradient(to bottom, #7ccaf7 70%, #80ac73 30%);
     min-height: 100vh;
 }
 
@@ -75,17 +75,24 @@ main {
 }
 
 .content {
-    
+    display: flex;
 }
 
 .spacer {
     flex-grow: 1;
 }
 
+.asideBox {
+    margin: 15px;
+    width: 15%; 
+    height: 100%; 
+}
+
 #midColumn {
+    width: 70%;
     border-radius: 10px;
     padding: 30px;
-    margin: 200px;
+    margin: 0px;
     margin-bottom: 15px;
     margin-top: 15px;
     background-color: rgba(255, 255, 255, 0.8); /* Cor branca com 80% de transparência */
