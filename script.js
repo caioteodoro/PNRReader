@@ -201,9 +201,21 @@ function formatarData(dataStr) {
     const mesAbreviado = dataStr.substring(2).toLowerCase();
     const meses = { jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5, jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11 };
     
-    // Cria um objeto Date (os meses são 0-indexados)
-    return new Date(2024, meses[mesAbreviado], dia); // Assume o ano como 2024, altere conforme necessário
+    const anoAtual = new Date().getFullYear(); // Ano atual
+    const mesAtual = new Date().getMonth(); // Mês atual (0-indexado)
+    const diaAtual = new Date().getDate(); // Dia do mês atual
+
+    // Cria a data com o ano atual
+    let data = new Date(anoAtual, meses[mesAbreviado], dia);
+
+    // Se a data já passou este ano, adiciona um ano
+    if (data.getMonth() < mesAtual || (data.getMonth() === mesAtual && data.getDate() < diaAtual)) {
+        data.setFullYear(anoAtual + 1); // Ajusta o ano para o próximo
+    }
+
+    return data;
 }
+
 
 function formatarDataParaTabela(data) {
     const diasDaSemana = ['Dom.', 'Seg.', 'Ter.', 'Qua.', 'Qui.', 'Sex.', 'Sáb.'];
