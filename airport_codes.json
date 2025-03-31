@@ -1,5 +1,9 @@
 {
     "JFK": "Nova York, Estados Unidos (JFK)",
+    "SLZ": "São Luís, Brasil (SLZ)",
+    "PHL": "Philadelphia, Estados Unidos (PHL)",
+    "SBH": "Saint-Barthélemy, São Bartolomeu (SBH)",
+    "EDI": "Edimburgo, Reino Unido (EDI)",
     "JMK": "Mykonos, Grécia (JMK)", 
     "PKX": "Pequim, China (PKX)",
     "MCZ": "Maceió, Brasil (MCZ)",
@@ -8,7 +12,7 @@
     "DAR": "Dar es Salaam, Tanzânia (DAR)",
     "YAG": "Fort Frances, Canadá (YAG)",
     "GAY": "Gaya, Índia (GAY)",
-    "SMF": "Sacramento, EUA (SMF)",
+    "SMF": "Sacramento, Estados Unidos (SMF)",
     "TRN": "Turim, Itália (TRN)",
     "NUE": "Nuremberg, Alemanha (NUE)",
     "DEN": "Denver, Estados Unidos (DEN)",
