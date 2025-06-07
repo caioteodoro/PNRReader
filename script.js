@@ -2,10 +2,6 @@ let airlineCodes = {};
 let airportCodes = {};
 var formatChoiceValue = "united";
 
-window.onload = function () {
-    updateDivideOrUniteButtonText();
-}
-
 // Carrega os arquivos JSON de companhias aéreas e aeroportos
 async function carregarJson(url) {
     const response = await fetch(url);
@@ -349,3 +345,5 @@ if (formatChoice) {
 } else {
     console.log('Cookie formatChoice não encontrado.');
 }
+
+updateDivideOrUniteButtonText();
