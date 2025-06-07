@@ -302,6 +302,7 @@ function dividirOuUnirTabela() {
 }
 
 function updateDivideOrUniteButtonText() {
+    console.log(formatChoiceValue);
     const button = document.getElementById("divideButton");
 
     if (formatChoiceValue === "divided") {
@@ -343,6 +344,7 @@ const formatChoice = getCookie('formatChoice');
 if (formatChoice) {
     formatChoiceValue = formatChoice
 } else {
+    formatChoiceValue = "united"
     console.log('Cookie formatChoice não encontrado.');
 }
 
