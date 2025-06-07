@@ -305,9 +305,9 @@ function updateDivideOrUniteButtonText() {
     const button = document.getElementById("divideButton");
 
     if (formatChoiceValue === "divided") {
-        button.textContent = "Dividir Origem - Destino";
-    } else {
         button.textContent = "Unir Origem - Destino";
+    } else {
+        button.textContent = "Dividir Origem - Destino";
     };
 }
 
