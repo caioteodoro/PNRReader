@@ -133,10 +133,13 @@ th {
 
 #buttonContainer {
     width: 100%;
-    text-align: right;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*text-align: justify;*/
 }
 
-#copyButton {
+.customButton {
     font-weight: bold;
     font-size: medium;
     background-color: black; /* Cor de fundo */
@@ -154,6 +157,14 @@ th {
 
 #copyButton:active {
     border-left: 5px solid #80ac73;
+}
+
+#divideButton:hover {
+    border-right: 5px solid #7ccaf7;
+}
+
+#divideButton:active {
+    border-right: 5px solid #80ac73;
 }
 
 #sendButton {
