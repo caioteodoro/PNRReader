@@ -112,6 +112,10 @@ main {
 
 .content {
     display: flex;
+    align-items: flex-start; /* alinha as colunas no topo */
+    justify-content: center;
+    gap: 20px; /* espaço entre colunas */
+    min-height: 300px; /* altura mínima da área principal */
 }
 
 .spacer {
@@ -119,9 +123,15 @@ main {
 }
 
 .asideBox {
-    margin: 15px;
-    width: 15%;
-    height: 100%;
+    width: 300px;
+    min-height: 400px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 #midColumn {
@@ -342,8 +352,12 @@ footer {
         display: block;
     }
 
-    #divideButton {
+    #divideButton, .asideBox {
         display: none;
+    }
+
+    .content {
+        gap: 0px;
     }
 
     #homeButton {
@@ -374,4 +388,5 @@ footer {
     .footer-column {
         width: 90%;
     }
+    
 }
