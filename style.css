@@ -14,7 +14,8 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: white; /* ou outra cor */
+    background-color: white;
+    /* ou outra cor */
     z-index: 9999;
     transition: opacity 0.5s ease;
 }
@@ -22,10 +23,13 @@
 #pageTitle {
     font-size: 30px;
     font-family: '04B_30__', sans-serif;
-    text-shadow: 
-        2px 2px 0 white, /* Sombra direita */
-        -2px -2px 0 white, /* Sombra esquerda */
-        2px -2px 0 white, /* Sombra acima */
+    text-shadow:
+        2px 2px 0 white,
+        /* Sombra direita */
+        -2px -2px 0 white,
+        /* Sombra esquerda */
+        2px -2px 0 white,
+        /* Sombra acima */
         -2px 2px 0 white;
     color: black;
     text-decoration: none;
@@ -56,11 +60,13 @@ header {
     margin-bottom: 0px;
 }
 
-html, body {
-    height: 100%; /* Garante que o corpo ocupe 100% da altura da janela */
+html,
+body {
+    height: 100%;
+    /* Garante que o corpo ocupe 100% da altura da janela */
     margin: 0;
     padding: 0;
-  }
+}
 
 body {
     display: flex;
@@ -73,16 +79,19 @@ body {
 main {
     box-shadow: inset 0 20px 0 0 #7ccaf7;
     background-image: url('assets/skyBackgroundImage.png');
-    background-size: 100% auto; 
+    background-size: 100% auto;
     background-repeat: no-repeat;
     background-position: bottom;
-    width: 100%; /* Preenche a largura da tela */
+    width: 100%;
+    /* Preenche a largura da tela */
     display: flex;
     flex: 1;
     flex-direction: column;
-    justify-content: center; /* Centraliza o conteúdo horizontalmente, se houver */
+    justify-content: center;
+    /* Centraliza o conteúdo horizontalmente, se houver */
     margin: 0;
-    padding: 0; /* Remove qualquer padding interno */
+    padding: 0;
+    /* Remove qualquer padding interno */
 }
 
 .content {
@@ -95,8 +104,8 @@ main {
 
 .asideBox {
     margin: 15px;
-    width: 15%; 
-    height: 100%; 
+    width: 15%;
+    height: 100%;
 }
 
 #midColumn {
@@ -106,8 +115,10 @@ main {
     margin: 0px;
     margin-bottom: 15px;
     margin-top: 15px;
-    background-color: rgba(255, 255, 255, 0.8); /* Cor branca com 80% de transparência */
-    backdrop-filter: blur(10px); /* Aplica um desfoque ao fundo */
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Cor branca com 80% de transparência */
+    backdrop-filter: blur(10px);
+    /* Aplica um desfoque ao fundo */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -150,15 +161,23 @@ th {
     /*text-align: justify;*/
 }
 
+#indexButtonSpacer {
+    display: none;
+}
+
 .customButton {
     font-weight: bold;
     font-size: medium;
-    background-color: black; /* Cor de fundo */
+    background-color: black;
+    /* Cor de fundo */
     border: none;
     color: white;
-    padding: 5px 20px; /* Espaçamento interno do botão */
-    cursor: pointer; /* Muda o cursor ao passar sobre o botão */
-    transition: background-color 0.3s; /* Transição suave na cor de fundo */
+    padding: 5px 20px;
+    /* Espaçamento interno do botão */
+    cursor: pointer;
+    /* Muda o cursor ao passar sobre o botão */
+    transition: background-color 0.3s;
+    /* Transição suave na cor de fundo */
     transition: border 0.1s ease;
 }
 
@@ -202,44 +221,141 @@ footer {
     gap: 60px;
     margin: 0 auto;
     padding: 0 0 20px 0;
-    text-align:left;
+    text-align: left;
     font-size: medium;
     bottom: 0;
     width: 100%;
     background-color: #80ac73;
     position: top;
-  }
-  
-  #footer-column-with-text {
-    width: 300px;
-  }
+}
 
-  .footer-column {
+#footer-column-with-text {
+    width: 300px;
+}
+
+.footer-column {
     width: 200px;
-  }
-  
-  .footer-column h3 {
+}
+
+.footer-column h3 {
     color: white;
     margin-bottom: 10px;
-  }
-  
-  .footer-column a {
+}
+
+.footer-column a {
     display: block;
     margin-bottom: 5px;
     text-decoration: none;
     color: inherit;
     color: #B0E46A;
     transition: color 0.1s ease-in;
-  }
-  
-  .footer-column a:hover {
-    color: #3c632f; 
-  }
-  
-  .footer-column p {
-    margin-bottom: 10px;
-  }
+}
 
-  #honeypot {
+.footer-column a:hover {
+    color: #3c632f;
+}
+
+.footer-column p {
+    margin-bottom: 10px;
+}
+
+#honeypot {
     display: none;
-  }
+}
+
+#contactContainer {
+    display: flex; 
+    align-items: flex-end;
+    flex-direction: row;
+}
+
+@media (max-width: 600px) {
+
+    .asideBox {
+        margin: 0px;
+        width: 0%;
+        height: 100%;
+    }
+
+    #midColumn {
+        width: 100%;
+        border-radius: 0px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 15px;
+        padding-top: 0px;
+        margin: 0px;
+        margin-bottom: 15px;
+        margin-top: 15px;
+    }
+
+    body {
+        background: linear-gradient(to bottom, #7ccaf7 70%, #7ccaf7 30%);
+        font-size: 100%;
+    }
+
+    #pageSubtitle {
+        font-size: 9px;
+    }
+
+    table,
+    th,
+    td,
+    p,
+    li,
+    h4,
+    a,
+    #pnrInput {
+        font-size: small;
+    }
+
+    .customButton {
+        font-size: small;
+    }
+
+    h2 {
+        font-size: medium;
+        text-align: center;
+    }
+
+    h3 {
+        font-size: medium;
+    }
+
+    #indexButtonSpacer {
+        display: block;
+    }
+
+    #divideButton {
+        display: none;
+    }
+
+    #homeButton {
+        margin: 0 auto !important;
+    }
+
+    .contactHomeButton {
+        position: absolute;
+        right: 0px;
+    }
+
+    #contactContainer {
+        position: relative;
+        flex-direction: column;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 0px;
+        width: 100%;
+    }
+
+    #footer-column-with-text {
+        width: 90%;
+    }
+
+    .footer-column {
+        width: 90%;
+    }
+}
