@@ -2,6 +2,10 @@ let airlineCodes = {};
 let airportCodes = {};
 var formatChoiceValue = "united";
 
+window.onload = function () {
+    updateDivideOrUniteButtonText();
+}
+
 // Carrega os arquivos JSON de companhias aéreas e aeroportos
 async function carregarJson(url) {
     const response = await fetch(url);
@@ -289,19 +293,26 @@ window.onload = async function () {
 }
 
 function dividirOuUnirTabela() {
+    if (formatChoiceValue === "divided") {
+        formatChoiceValue = "united";
+        document.cookie = "formatChoice=united; path=/; max-age=31536000";
+        atualizarTabelaPNR();
+    } else {
+        formatChoiceValue = "divided";
+        document.cookie = "formatChoice=divided; path=/; max-age=31536000";
+        atualizarTabelaPNR();
+    }
+    updateDivideOrUniteButtonText();
+}
+
+function updateDivideOrUniteButtonText() {
     const button = document.getElementById("divideButton");
 
     if (formatChoiceValue === "divided") {
         button.textContent = "Dividir Origem - Destino";
-        formatChoiceValue = "united"
-        document.cookie = "formatChoice=united; path=/; max-age=31536000";
-        atualizarTabelaPNR()
     } else {
         button.textContent = "Unir Origem - Destino";
-        formatChoiceValue = "divided"
-        document.cookie = "formatChoice=divided; path=/; max-age=31536000";
-        atualizarTabelaPNR()
-    }
+    };
 }
 
 function copiarTabela() {
