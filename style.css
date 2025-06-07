@@ -8,6 +8,17 @@
     src: url('fonts/dogica.ttf') format('truetype');
 }
 
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #7ccaf7; /* ou outra cor */
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
 #pageTitle {
     font-size: 30px;
     font-family: '04B_30__', sans-serif;

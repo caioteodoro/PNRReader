@@ -9,12 +9,12 @@ async function carregarJson(url) {
 }
 
 async function carregarDados() {
-    document.getElementById("pnrInput").placeholder = "Carregando dados";
     airlineCodes = await carregarJson('https://raw.githubusercontent.com/caioteodoro/PNRReader/refs/heads/main/airline_codes.json');
     airportCodes = await carregarJson('https://raw.githubusercontent.com/caioteodoro/PNRReader/refs/heads/main/airport_codes.json');
 
-    document.getElementById("pnrInput").disabled = false;
-    document.getElementById("pnrInput").placeholder = "Insira os códigos PNR, um por linha";
+    const preloader = document.getElementById("preloader");
+    preloader.style.opacity = "0";
+    setTimeout(() => preloader.style.display = "none", 500);
 }
 
 // Função para transformar múltiplos códigos PNR em uma tabela formatada
