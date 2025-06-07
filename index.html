@@ -20,6 +20,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PNR Reader</title>
     <link rel="stylesheet" href="style.css">
+    
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/favicon.png" type="image/png">
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="assets/favicon.png">
 </head>
 
 <body>
@@ -27,6 +32,8 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DD6GDDZ" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+
+    <div id="preloader"></div>
 
     <header>
         <a href="index.html" id="pageTitle">PNR READER</a>
@@ -46,9 +53,9 @@
                 </table>
 
                 <br>
-                <div id="buttonContainer">
-                    <button class="customButton" id="divideButton" onclick="dividirOuUnirTabela()">Dividir Origem - Destino</button>
-                    <button class="customButton" id="copyButton" onclick="copiarTabela()">Copiar</button>
+                <div class="buttonContainer">
+                    <button class="customButton leftButton" id="divideButton" onclick="dividirOuUnirTabela()">Dividir Origem - Destino</button>
+                    <button class="customButton rightButton" id="copyButton" onclick="copiarTabela()">Copiar</button>
                 </div>
             </div>
 
