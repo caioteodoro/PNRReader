@@ -305,6 +305,7 @@ footer {
 
     #midColumn {
         width: 100%;
+        min-height: 300px;
         border-radius: 0px;
         padding-left: 15px;
         padding-right: 15px;
