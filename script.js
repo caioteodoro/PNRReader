@@ -1,5 +1,6 @@
 let airlineCodes = {};
 let airportCodes = {};
+var formatChoiceValue = "united";
 
 // Carrega os arquivos JSON de companhias aéreas e aeroportos
 async function carregarJson(url) {
@@ -17,6 +18,7 @@ function atualizarTabelaPNR() {
     const pnrInput = document.getElementById('pnrInput').value.toUpperCase();
     const linhasPNR = pnrInput.split('\n'); // Divide o texto em várias linhas
 
+    let theadHTML = '';
     let tabelaHTML = '';
 
     // Função para adicionar um dia a uma data
@@ -29,11 +31,11 @@ function atualizarTabelaPNR() {
     linhasPNR.forEach(pnrCode => {
 
         // Ignora qualquer coisa antes da primeira letra
-        pnrCode = pnrCode.slice(pnrCode.search(/[A-Z]/)); 
-        
+        pnrCode = pnrCode.slice(pnrCode.search(/[A-Z]/));
+
         //LÓGICA CÓDIGO DA COMPANHIA
         const airlineCode = pnrCode.substring(0, 2); // Pega os dois primeiros caracteres após o slice
-        
+
         //LÓGICA NÚMERO DO VOO
         // Encontra o número do voo: ignora tudo que não seja um número, e começa a contar o número do voo ao encontrar o primeiro dígito
         let flightNumber = '';
@@ -103,7 +105,7 @@ function atualizarTabelaPNR() {
                     }
                 } else {
                     // Se encontramos um caractere que não é número, resetamos o contador e o horário atual
-                    horarioAtual = ''; 
+                    horarioAtual = '';
                     numerosSeguidos = 0;
                 }
 
@@ -140,7 +142,7 @@ function atualizarTabelaPNR() {
         const dataPartida = dataBase ? formatarDataParaTabela(dataPartidaSemFormatacao) : ''; // Formata a data base ou deixa vazio
         const dataChegada = dataBase ? formatarDataParaTabela(dataChegadaSemFormatacao) : ''; // Usa a mesma data base para chegada
 
-        
+
 
         // Agora, usamos os horários para adicionar à data de partida e chegada
         const horarioPartidaFormatado = horarioSaida ? formatarHora(horarioSaida) : ''; // Formata a hora de partida
@@ -152,7 +154,38 @@ function atualizarTabelaPNR() {
 
         if (airlineName && flightNumber && origem && destino && dataPartida && horarioPartidaFormatado && dataChegada && horarioChegadaFormatado) {
             // Adiciona uma nova linha na tabela apenas se todos os campos estiverem preenchidos
-            tabelaHTML += `
+            if (formatChoiceValue === "divided") {
+
+                theadHTML = `
+                <tr>
+                    <th>Voo</th>
+                    <th>Origem</th>
+                    <th>Destino</th>
+                    <th>Saída</th>
+                    <th>Chegada</th>
+                </tr>
+                `;
+
+                tabelaHTML += `
+                <tr>
+                    <td>${airlineName} ${flightNumber}</td>
+                    <td>${origem}</td>
+                    <td>${destino}</td>
+                    <td>${dataPartida} ${horarioPartidaFormatado}</td>
+                    <td>${dataChegada} ${horarioChegadaFormatado}</td>
+                </tr>
+            `;
+            } else {
+                theadHTML = `
+                <tr>
+                    <th>Voo</th>
+                    <th>Origem - Destino</th>
+                    <th>Saída</th>
+                    <th>Chegada</th>
+                </tr>
+                `;
+
+                tabelaHTML += `
                 <tr>
                     <td>${airlineName} ${flightNumber}</td>
                     <td>${origem} - ${destino}</td>
@@ -160,11 +193,12 @@ function atualizarTabelaPNR() {
                     <td>${dataChegada} ${horarioChegadaFormatado}</td>
                 </tr>
             `;
+            }
         }
-        
     });
 
     // Atualiza a tabela com o HTML gerado
+    document.getElementById("pnrTableHead").innerHTML = theadHTML;
     document.getElementById('pnrTableBody').innerHTML = tabelaHTML;
 }
 
@@ -200,7 +234,7 @@ function formatarData(dataStr) {
     const dia = parseInt(dataStr.substring(0, 2), 10);
     const mesAbreviado = dataStr.substring(2).toLowerCase();
     const meses = { jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5, jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11 };
-    
+
     const anoAtual = new Date().getFullYear(); // Ano atual
     const mesAtual = new Date().getMonth(); // Mês atual (0-indexado)
     const diaAtual = new Date().getDate(); // Dia do mês atual
@@ -254,6 +288,22 @@ window.onload = async function () {
     });
 }
 
+function dividirOuUnirTabela() {
+    const button = document.getElementById("divideButton");
+
+    if (formatChoiceValue === "divided") {
+        button.textContent = "Dividir Origem - Destino";
+        formatChoiceValue = "united"
+        document.cookie = "formatChoice=united; path=/; max-age=31536000";
+        atualizarTabelaPNR()
+    } else {
+        button.textContent = "Unir Origem - Destino";
+        formatChoiceValue = "divided"
+        document.cookie = "formatChoice=divided; path=/; max-age=31536000";
+        atualizarTabelaPNR()
+    }
+}
+
 function copiarTabela() {
     var tabela = document.getElementById("pnrTable");
     var range = document.createRange();
@@ -269,4 +319,22 @@ function copiarTabela() {
     }
 
     window.getSelection().removeAllRanges(); // Limpa a seleção
+}
+
+function getCookie(name) {
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+        let c = cookies[i].trim();
+        if (c.indexOf(name + '=') === 0) {
+            return c.substring((name + '=').length, c.length);
+        }
+    }
+    return null;
+}
+
+const formatChoice = getCookie('formatChoice');
+if (formatChoice) {
+    formatChoiceValue = formatChoice
+} else {
+    console.log('Cookie formatChoice não encontrado.');
 }
