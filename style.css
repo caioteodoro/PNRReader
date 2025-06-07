@@ -14,7 +14,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #7ccaf7; /* ou outra cor */
+    background-color: white; /* ou outra cor */
     z-index: 9999;
     transition: opacity 0.5s ease;
 }
@@ -142,7 +142,7 @@ th {
     color: white;
 }
 
-#buttonContainer {
+.buttonContainer {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -162,41 +162,24 @@ th {
     transition: border 0.1s ease;
 }
 
-#copyButton:hover {
+.rightButton:hover {
     border-left: 5px solid #7ccaf7;
 }
 
-#copyButton:active {
+.rightButton:active {
     border-left: 5px solid #80ac73;
 }
 
-#divideButton:hover {
+.leftButton:hover {
     border-right: 5px solid #7ccaf7;
 }
 
-#divideButton:active {
+.leftButton:active {
     border-right: 5px solid #80ac73;
 }
 
 #sendButton {
-    font-weight: bold;
-    font-size: medium;
-    background-color: black; /* Cor de fundo */
-    border: none;
-    color: white;
     margin-top: 20px;
-    padding: 5px 20px; /* Espaçamento interno do botão */
-    cursor: pointer; /* Muda o cursor ao passar sobre o botão */
-    transition: background-color 0.3s; /* Transição suave na cor de fundo */
-    transition: border 0.1s ease;
-}
-
-#sendButton:hover {
-    border-right: 5px solid #7ccaf7;
-}
-
-#sendButton:active {
-    border-right: 5px solid #80ac73;
 }
 
 input[type="text"] {

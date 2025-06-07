@@ -43,8 +43,8 @@
                     em entrar em contato. Estou sempre buscando formas de melhorar a ferramenta e facilitar ainda mais o
                     trabalho dos agentes de viagem. Sua opinião é muito importante!</p>
                 
-                    
-                    <form action="https://getform.io/f/alljmwqa" method="POST">
+                <div style="display: flex; align-items: flex-end;">
+                    <form action="https://getform.io/f/alljmwqa" method="POST" style="flex: 1;">
                         <h4 style="margin-bottom: 10px;">Nome*</h4>  
                         <input type="text" name="name" style="height: 18px; width: 70%; font-family: Arial, sans-serif;" required>
                         <h4 style="margin-bottom: 10px;">E-mail*</h4>
@@ -55,8 +55,15 @@
                         <!-- hidden Honeypot input to prevent spams -->
                         <input type="hidden" name="_gotcha" style="display:none !important">
                         </br>
-                        <button id="sendButton" type="submit">Enviar</button>
+
+                        
+                        <button class="customButton leftButton" id="sendButton" type="submit">Enviar</button>
                     </form>
+
+                    <div style="flex: 0 0 auto; display: flex; flex-direction: column; justify-content: flex-end; height: 100px;">
+                        <button class="customButton rightButton" id="homeButton" onclick="window.location.href='/index.html'">Voltar</button>
+                    </div>
+                </div>
             </div>
             <aside class="asideBox"></aside>
 
