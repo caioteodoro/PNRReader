@@ -52,6 +52,26 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+#cookie-banner {
+        display: none; 
+        z-index: 10000; 
+        position: fixed;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        background-color:rgba(0,0,0,0.5);
+        backdrop-filter: blur(1px); 
+        -webkit-backdrop-filter: blur(1px);
+        padding:15px;
+        align-items:center;
+        justify-content:center;
+        font-family:sans-serif;
+        margin: 0px;
+        width: 100%;
+        margin-left: -15px;
+    }
+
 #cookie-image {
     width:150px;
     height:150px;
@@ -331,20 +351,6 @@ footer {
 @media (max-width: 600px) {
 
     #cookie-banner {
-        display: none; 
-        z-index: 10000; 
-        position: fixed;
-        top:0;
-        left:0;
-        width:100%;
-        height:100%;
-        background-color:rgba(0,0,0,0.5);
-        backdrop-filter: blur(1px); 
-        -webkit-backdrop-filter: blur(1px);
-        padding:15px;
-        align-items:center;
-        justify-content:center;
-        font-family:sans-serif;
         margin: 0px;
         width: 100%;
         margin-left: -15px;
