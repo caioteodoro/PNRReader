@@ -27,11 +27,15 @@
     <link rel="apple-touch-icon" href="assets/favicon.png">
 </head>
 
-<body style="overflow: hidden;">
+<body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DD6GDDZ" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
 
     <header>
         <a href="index.html" id="pageTitle">PNR READER</a>
@@ -43,28 +47,19 @@
         <div class="content">
             <aside class="asideBox"></aside>
             <div id="midColumn">
-                <h2>Como usar o PNR Reader?</h2>
-                <p>Usar o <strong>PNR Reader</strong> é extremamente simples e rápido. Veja como:</p>
-                <ol>
-                    <li class="aboutText"><strong>Insira o PNR:</strong> Na página inicial, digite o código PNR que você
-                        recebeu do GSA ou GDS.
-                    </li>
-                    <li class="aboutText"><strong>Tradução Automática:</strong> Assim que o PNR for inserido, a
-                        ferramenta fará a tradução
-                        automática das informações da reserva. Você poderá visualizar todos os detalhes, como voos,
-                        horários,
-                        aeroportos de origem e destino, etc.</li>
-                    <li class="aboutText"><strong>Copiar e Colar:</strong> Após revisar as informações, basta clicar no
-                        botão "Copiar". A tabela
-                        será copiada e estará pronta para ser colada na sua proposta ou em qualquer outro documento que
-                        será
-                        enviado ao cliente. Essa praticidade permite que você compartilhe os detalhes da reserva de
-                        forma rápida
-                        e eficiente.</li>
-                </ol>
+                <p>Digite o código PNR no formato <strong>LH237 23MAR MADGRU 0800 1300</strong>:</p>
+                <textarea id="pnrInput" rows="5" cols="50" placeholder="Insira os códigos PNR, um por linha"></textarea>
+                <table id="pnrTable">
+                    <thead id="pnrTableHead"></thead>
+                    <tbody id="pnrTableBody"></tbody>
+                </table>
+
+                <br>
                 <div class="buttonContainer">
-                    <button class="customButton rightButton" id="homeButton"
-                        onclick="window.location.href='./index.html'" style="margin-left: auto;">Voltar</button>
+                    <div id="indexButtonSpacer"></div>
+                    <button class="customButton leftButton" id="divideButton" onclick="dividirOuUnirTabela()">Dividir
+                        Origem - Destino</button>
+                    <button class="customButton rightButton" id="copyButton" onclick="copiarTabela()">Copiar</button>
                 </div>
             </div>
             <aside class="asideBox"></aside>
@@ -80,7 +75,6 @@
                 }
             </style>
         </div>
-        <div class="spacer"></div>
 
         <div id="adsContainer">
             <!-- bottomAd -->
@@ -111,6 +105,7 @@
         </div>
     </footer>
 
+
     <div id="cookie-banner"
         style="z-index: 10000; position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,0.5);backdrop-filter: blur(1px); -webkit-backdrop-filter: blur(1px);padding:15px;display:flex;align-items:center;justify-content:center;font-family:sans-serif;">
         <div
@@ -134,7 +129,10 @@
                 </div>
             </div>
         </div>
+        
     </div>
+
+    
 
     <script>
         window.addEventListener('load', function () {
@@ -151,6 +149,8 @@
             };
         });
     </script>
+
+
 
     <script src="script.js"></script>
 

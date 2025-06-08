@@ -14,7 +14,7 @@
     <!-- End Google Tag Manager -->
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8354366259506970"
-     crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,26 +47,32 @@
                 <p>Fico feliz em ouvir você! Se tiver alguma dúvida, sugestão ou feedback sobre o PNR Reader, não hesite
                     em entrar em contato. Estou sempre buscando formas de melhorar a ferramenta e facilitar ainda mais o
                     trabalho dos agentes de viagem. Sua opinião é muito importante!</p>
-                
+
                 <div id="contactContainer">
                     <form action="https://getform.io/f/alljmwqa" method="POST" style="flex: 1; width: 100%;">
-                        <h4 style="margin-bottom: 10px;">Nome*</h4>  
-                        <input type="text" name="name" style="height: 18px; width: 70%; font-family: Arial, sans-serif;" required>
+                        <h4 style="margin-bottom: 10px;">Nome*</h4>
+                        <input type="text" name="name" style="height: 18px; width: 70%; font-family: Arial, sans-serif;"
+                            required>
                         <h4 style="margin-bottom: 10px;">E-mail*</h4>
-                        <input type="email" name="email" style="height: 18px; font-size: 16px; padding: 10px; width: 70%; font-family: Arial, sans-serif;" required>
+                        <input type="email" name="email"
+                            style="height: 18px; font-size: 16px; padding: 10px; width: 70%; font-family: Arial, sans-serif;"
+                            required>
                         <h4 style="margin-bottom: 10px;">Mensagem*</h4>
-                        <textarea name="message" style="width: 70%; max-width: 70%; min-height: 38px; margin-left: 0; font-size: 16px; padding: 10px; font-family: Arial, sans-serif;" rows="5" required></textarea>
+                        <textarea name="message"
+                            style="width: 70%; max-width: 70%; min-height: 38px; margin-left: 0; font-size: 16px; padding: 10px; font-family: Arial, sans-serif;"
+                            rows="5" required></textarea>
 
                         <!-- hidden Honeypot input to prevent spams -->
                         <input type="hidden" name="_gotcha" style="display:none !important">
                         </br>
 
-                        
+
                         <button class="customButton leftButton" id="sendButton" type="submit">Enviar</button>
                     </form>
 
                     <div style="flex: 0 0 auto; display: flex; flex-direction: column; justify-content: flex-end;">
-                        <button class="customButton rightButton contactHomeButton" id="homeButton" onclick="window.location.href='./index.html'">Voltar</button>
+                        <button class="customButton rightButton contactHomeButton" id="homeButton"
+                            onclick="window.location.href='./index.html'">Voltar</button>
                     </div>
                 </div>
             </div>
@@ -93,7 +99,7 @@
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
         </div>
-        
+
     </main>
 
 
@@ -116,8 +122,8 @@
         </div>
     </footer>
 
-    <div id="cookie-overlay"
-        style="z-index: 10000; position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,0.5);z-index:9999;display:flex;align-items:center;justify-content:center; backdrop-filter: blur(1px); -webkit-backdrop-filter: blur(1px);">
+    <div id="cookie-banner"
+        style="z-index: 10000; position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,0.5);backdrop-filter: blur(1px); -webkit-backdrop-filter: blur(1px);padding:15px;display:flex;align-items:center;justify-content:center;font-family:sans-serif;">
         <div
             style="display: flex; gap: 30px; flex-direction: row; background-color: rgba(255, 255, 255, 0.8);;padding:20px;border-radius:10px;max-width:500px;width:90%;box-shadow:0 4px 12px rgba(0,0,0,0.3);backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
             <img src="assets/cookies.png" alt="cookies" style="width:150px;height:150px;">
@@ -140,6 +146,22 @@
             </div>
         </div>
     </div>
+
+    <script>
+        window.addEventListener('load', function () {
+            const banner = document.getElementById('cookie-banner');
+            if (!banner) return;
+            if (localStorage.getItem('cookiesAccepted') === 'true') {
+                banner.style.display = 'none';
+            }
+
+            document.getElementById('accept-cookies').onclick = function () {
+                localStorage.setItem('cookiesAccepted', 'true');
+                banner.style.display = 'none';
+                dataLayer.push({ event: 'cookies_consent_given' });
+            };
+        });
+    </script>
 
     <script src="script.js"></script>
 

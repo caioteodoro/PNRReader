@@ -349,20 +349,6 @@ function getCookie(name) {
     return null;
 }
 
-function presentCookieAlert() {
-    if (localStorage.getItem('cookiesAccepted') === 'true') {
-        document.getElementById('cookie-overlay').style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-    
-    document.getElementById('accept-cookies').onclick = function () {
-        localStorage.setItem('cookiesAccepted', 'true');
-        document.getElementById('cookie-overlay').style.display = 'none';
-        document.body.style.overflow = 'auto';
-        dataLayer.push({ 'event': 'cookies_consent_given' });
-    }
-}
-
 const formatChoice = getCookie('formatChoice');
 if (formatChoice) {
     formatChoiceValue = formatChoice
@@ -372,4 +358,4 @@ if (formatChoice) {
 }
 
 updateDivideOrUniteButtonText();
-presentCookieAlert();
+
