@@ -27,7 +27,7 @@
     <link rel="apple-touch-icon" href="assets/favicon.png">
 </head>
 
-<body style="overflow: hidden;">
+<body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DD6GDDZ" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
@@ -137,9 +137,10 @@
     <script>
         window.addEventListener('load', function () {
             const banner = document.getElementById('cookie-banner');
-            if (!banner) return;
-            if (localStorage.getItem('cookiesAccepted') === 'true') {
-                banner.style.display = 'none';
+            if (localStorage.getItem('cookiesAccepted') === 'false') {
+                banner.style.display = 'block';
+            } else {
+                banner.style.display = 'true';
             }
 
             document.getElementById('accept-cookies').onclick = function () {
