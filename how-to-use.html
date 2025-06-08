@@ -27,7 +27,7 @@
     <link rel="apple-touch-icon" href="assets/favicon.png">
 </head>
 
-<body>
+<body style="overflow: hidden;">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DD6GDDZ" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
@@ -111,6 +111,31 @@
             <a href="contact.html">Contato</a>
         </div>
     </footer>
+
+    <div id="cookie-overlay"
+        style="z-index: 10000; position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,0.5);z-index:9999;display:flex;align-items:center;justify-content:center; backdrop-filter: blur(1px); -webkit-backdrop-filter: blur(1px);">
+        <div
+            style="display: flex; gap: 30px; flex-direction: row; background-color: rgba(255, 255, 255, 0.8);;padding:20px;border-radius:10px;max-width:500px;width:90%;box-shadow:0 4px 12px rgba(0,0,0,0.3);backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+            <img src="assets/cookies.png" alt="cookies" style="width:150px;height:150px;">
+            <div style="display:flex;align-items:center;gap:15px;">
+                <div style="flex:1;">
+                    <h3
+                        style="margin-top:0;margin-bottom:15px;color:#333;font-family: 'Dogica', sans-serif;text-align: center;">
+                        we use cookies!</h3>
+                    <p style="margin:10;font-size:14px;color:#333;">
+                        Usamos cookies pra lembrar suas escolhas e melhorar sua experiência por aqui!
+                    </p>
+                    <div style="text-align: center; margin-top: 15px;">
+                        <button class="customButton" id="accept-cookies"
+                            onmouseover="this.style.borderLeft='5px solid #80ac73';this.style.borderRight='5px solid #80ac73'"
+                            onmouseout="this.style.borderLeft='0px';this.style.borderRight='0px'">
+                            Aceitar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 
