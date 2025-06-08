@@ -128,10 +128,10 @@
     <script>
         window.addEventListener('load', function () {
             const banner = document.getElementById('cookie-banner');
-            if (localStorage.getItem('cookiesAccepted') === 'false') {
-                banner.style.display = 'block';
+            if (localStorage.getItem('cookiesAccepted') === 'true') {
+                banner.style.display = 'none';
             } else {
-                banner.style.display = 'true';
+                banner.style.display = 'block';
             }
 
             document.getElementById('accept-cookies').onclick = function () {
