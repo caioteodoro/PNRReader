@@ -139,7 +139,9 @@ main {
 }
 
 #adsContainer {
-    width: 100%;
+    min-height: 90px;
+    padding-left: 15%;
+    padding-right: 15%;
 }
 
 #pnrInput {
@@ -311,6 +313,11 @@ footer {
         margin-left: 0px;
         margin-bottom: 15px;
         margin-top: 15px;
+    }
+
+    #adsContainer {
+        padding-left: 0%;
+        padding-right: 0%;
     }
 
     body {
