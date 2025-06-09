@@ -493,7 +493,7 @@ footer {
     justify-content: center;
     position: absolute;
     top: 32px;
-    animation: moveObject 50s linear infinite;
+    animation: moveObject 90s linear infinite;
 }
 
 #celebration-text {
@@ -507,16 +507,20 @@ footer {
 
 @keyframes moveObject {
     0% {
+        opacity: 0;
+    }
+
+    10% {
         left: 100vw;
         opacity: 1;
     }
 
-    60% {
+    30% {
         left: -400px;
         opacity: 1;
     }
 
-    60.001% {
+    30.001% {
         opacity: 0;
     }
 
