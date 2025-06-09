@@ -145,6 +145,7 @@ body {
     font-family: Arial, sans-serif;
     background: #7ccaf7;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 main {
@@ -490,7 +491,7 @@ footer {
     display: none;
     align-items: center;
     justify-content: center;
-    position: fixed;
+    position: absolute;
     top: 32px;
     animation: moveObject 50s linear infinite;
 }
