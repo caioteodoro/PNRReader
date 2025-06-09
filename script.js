@@ -366,21 +366,20 @@ function dataHojeFormatada() {
     const hoje = new Date();
     const dia = String(hoje.getDate()).padStart(2, '0');
     const mes = hoje
-      .toLocaleString('pt-BR', { month: 'short' })
-      .toLowerCase()
-      .replace('.', '');
+        .toLocaleString('pt-BR', { month: 'short' })
+        .toLowerCase()
+        .replace('.', '');
     return `${dia}/${mes}`;
-  }
+}
 
-// Carrega o JSON e verifica se há mensagem para hoje
 fetch('https://raw.githubusercontent.com/caioteodoro/PNRReader/main/celebration-text.json')
     .then(response => response.json())
     .then(mensagens => {
         const hoje = dataHojeFormatada();
-        if (mensagens[hoje]) {
-            console.log(mensagens[hoje])
+        if (mensagens[hoje] && window.innerWidth > 600) {
+            console.log(mensagens[hoje]);
             document.getElementById('celebration-text').textContent = mensagens[hoje];
             document.getElementById('floating-object').style.display = 'flex';
         }
     })
-    .catch(erro => console.error('Erro ao carregar mensagens:', erro))
+    .catch(erro => console.error('Erro ao carregar mensagens:', erro));
