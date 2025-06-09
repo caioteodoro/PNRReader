@@ -512,6 +512,10 @@ footer {
     }
 
     10% {
+        opacity: 0;
+    }
+
+    10.001% {
         left: 100vw;
         opacity: 1;
     }
