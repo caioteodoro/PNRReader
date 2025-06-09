@@ -490,7 +490,7 @@ footer {
     display: none;
     align-items: center;
     justify-content: center;
-    position: absolute;
+    position: fixed;
     top: 32px;
     animation: moveObject 50s linear infinite;
 }
