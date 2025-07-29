@@ -8,6 +8,9 @@ async function carregarJson(url) {
     return await response.json();
 }
 
+const preloader = document.getElementById('preloader');
+preloader.style.opacity = '0';
+
 async function carregarDados() {
     airlineCodes = await carregarJson('https://raw.githubusercontent.com/caioteodoro/PNRReader/refs/heads/main/airline_codes.json');
     airportCodes = await carregarJson('https://raw.githubusercontent.com/caioteodoro/PNRReader/refs/heads/main/airport_codes.json');
