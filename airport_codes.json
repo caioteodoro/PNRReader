@@ -1,5 +1,10 @@
 {
     "JFK": "Nova York, Estados Unidos (JFK)",
+    "TPE": "Taipei, Taiwan (TPE)", 
+    "CZM": "Cozumel, México (CZM)", 
+    "ADB": "Esmirna, Turquia (ADB)", 
+    "NAV": "Nevşehir, Turquia (NAV)", 
+    "HOU": "Houston, Estados Unidos (HOU)", 
     "GRI": "Grand Island, Estados Unidos (GRI)",
     "LNK": "Lincoln, Estados Unidos (LNK)",
     "MTY": "Monterrey, México (MTY)",
