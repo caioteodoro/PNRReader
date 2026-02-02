@@ -242,7 +242,7 @@ function extrairData(restantePNR) {
 function formatarData(dataStr) {
     const dia = parseInt(dataStr.substring(0, 2), 10);
     const mesAbreviado = dataStr.substring(2).toLowerCase();
-    const meses = { jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5, jul: 6, aug: 7, sep: 8, oct: 9, out: 9, nov: 10, dec: 11 };
+    const meses = { jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5, jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11 };
 
     const anoAtual = new Date().getFullYear(); // Ano atual
     const mesAtual = new Date().getMonth(); // Mês atual (0-indexado)
