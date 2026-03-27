@@ -372,7 +372,7 @@ function dataHojeFormatada() {
     return `${dia}/${mes}`;
 }
 
-fetch('https://raw.githubusercontent.com/caioteodoro/PNRReader/main/celebration-text.json')
+fetch('https://pnr-reader.vercel.app/celebration-text.json')
     .then(response => response.json())
     .then(mensagens => {
         const hoje = dataHojeFormatada();
